@@ -1,0 +1,3 @@
+/media/drive/CPP_Project/2D_Up_Down_Shooter/cmake-build-debug/CMakeFiles/2D_Up_Down_Shooter.dir
+/media/drive/CPP_Project/2D_Up_Down_Shooter/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/drive/CPP_Project/2D_Up_Down_Shooter/cmake-build-debug/CMakeFiles/rebuild_cache.dir

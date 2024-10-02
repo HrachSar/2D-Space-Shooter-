@@ -25,6 +25,9 @@ add_executable(2D_Up_Down_Shooter
         core/game_level.h
         core/enemy_object.cpp
         core/enemy_object.h
+        ../3D_Game/src/core/Game.cpp
+        ../3D_Game/src/core/Game.cpp
+        ../3D_Game/src/core/Game.cpp
 )
 
 target_link_libraries(2D_Up_Down_Shooter ${OpenGlLinkers})

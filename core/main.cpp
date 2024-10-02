@@ -17,7 +17,7 @@ const unsigned int SCREEN_WIDTH = 800;
 const unsigned int SCREEN_HEIGHT = 600;
 float deltaTime = 0.0f;
 
-game Narkomania(SCREEN_WIDTH, SCREEN_HEIGHT);
+game Game(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 int main(int argc, char *argv[])
 {
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     GLFWmonitor* primaryMonitor = glfwGetPrimaryMonitor();
     const GLFWvidmode* mode = glfwGetVideoMode(primaryMonitor);
 
-    GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Narkomania", primaryMonitor, nullptr);
+    GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "SpaceShooter", primaryMonitor, nullptr);
     glfwMakeContextCurrent(window);
 
     //glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     //glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
     // initialize game
     // ---------------
-    Narkomania.Init();
+    Game.Init();
 
     // deltaTime variables
     // -------------------
@@ -73,18 +73,18 @@ int main(int argc, char *argv[])
 
         // manage user input
         // -----------------
-        Narkomania.ProcessInput(deltaTime);
-        Narkomania.ProcessCamera(deltaTime);
+        Game.ProcessInput(deltaTime);
+        Game.ProcessCamera(deltaTime);
         // update game state
         // -----------------
-        Narkomania.Update(deltaTime);
-        Narkomania.ResetPlayer();
-        Narkomania.DoCollisions(deltaTime);
+        Game.Update(deltaTime);
+        Game.ResetPlayer();
+        Game.DoCollisions(deltaTime);
         // render
         // ------
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        Narkomania.Render();
+        Game.Render();
 
         glfwSwapBuffers(window);
     }
@@ -105,9 +105,9 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     if (key >= 0 && key < 1024)
     {
         if (action == GLFW_PRESS)
-            Narkomania.Keys[key] = true;
+            Game.Keys[key] = true;
         else if (action == GLFW_RELEASE)
-            Narkomania.Keys[key] = false;
+            Game.Keys[key] = false;
     }
 }
 
@@ -119,5 +119,5 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 void mouse_callback(GLFWwindow *window, double xPosIn, double yPosIn) {
-    Narkomania.ProcessMouse(xPosIn, yPosIn);
+    Game.ProcessMouse(xPosIn, yPosIn);
 }
